@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container standalone-page">
+  <header class="page-heading"><p class="eyebrow">把学习变成可以展示的过程</p><h1>{{ title }}<span class="small-dot">.</span></h1></header>
+  {% if active == "about" %}
+  <div class="about-intro"><div class="avatar-placeholder" aria-hidden="true">边</div><div><h2>{{ site.author }}</h2><p>{{ site.role }}</p></div>
+  <div class="contact-links">
+  {% if site.github %}<a class="button secondary" href="{{ site.github }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>{% endif %}
+  {% if site.email %}<a class="button secondary" href="mailto:{{ site.email }}">联系我 ↗</a>{% endif %}
+  {% if site.resume %}<a class="button secondary" href="{% if site.resume.startswith('https://') %}{{ site.resume }}{% else %}{{ prefix }}{{ site.resume }}{% endif %}">公开简历 ↗</a>{% endif %}
+  </div></div>
+  {% endif %}
+  <article class="prose">{{ body_html | safe }}</article>
+</div>
+{% endblock %}

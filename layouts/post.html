@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container article-container">
+  <nav class="breadcrumb" aria-label="面包屑导航"><a href="../index.html">首页</a><span>/</span><a href="../{{ note.kind_index }}">{{ note.kind_label }}</a><span>/</span><span>正文</span></nav>
+  <header class="article-heading">
+    <div class="article-meta"><span class="kind-label kind-{{ note.kind }}">{{ note.kind_label }}</span><time>{{ note.date }}</time>{% if note.example %}<span class="example-label">示例 · 待替换</span>{% endif %}</div>
+    <h1>{{ note.title }}</h1><p>{{ note.summary }}</p>
+    <div class="tags">{% for tag in note.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+  </header>
+  {% if note.example %}<div class="inline-notice"><strong>示例内容：</strong>用于展示文章结构和写法，不代表站点作者已经读完论文、完成项目或取得相应成果。</div>{% endif %}
+  <div class="article-layout">
+    <article class="prose">{{ note.body_html | safe }}</article>
+    <aside class="article-sidebar"><div class="toc"><p class="eyebrow">本篇目录</p><nav aria-label="本篇目录">{% for h in note.toc if h.level <= 3 %}<a class="toc-level-{{ h.level }}" href="#{{ h.id }}">{{ h.label | safe }}</a>{% endfor %}</nav><div class="toc-bottom">允许不确定，也保留修正。</div></div></aside>
+  </div>
+  <div class="article-end"><a href="../{{ note.kind_index }}">← 返回{{ note.kind_label }}</a><a href="../guide.html">查看写作模板 →</a></div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+title: "小石潭记"
+author: "stone"
+role: "边缘计算方向 · 研究生"
+description: "记录论文阅读、算法理解与实验过程，让每一次学习都有迹可循。"
+email: "2922594887@qq.com"
+github: "https://github.com/woleigelei222"
+show_examples: true
+# 修改姓名和简介；没有要公开的联系方式时，保持空字符串。
+# show_examples: false 可以隐藏演示文章；它不会删除源文件。
+# email / github / resume 填入自己愿意公开的信息。
+# github 请填写完整 https 地址。
+# resume 可填写 https 地址，或 assets/resume.pdf；相对文件应放到 assets/。

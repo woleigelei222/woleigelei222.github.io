@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+  <meta name="color-scheme" content="light">
+  <title>{{ title }} · {{ site.title }}</title>
+  <link rel="icon" href="{{ prefix }}assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ prefix }}assets/style.css">
+  <script src="{{ prefix }}assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ prefix }}index.html" aria-label="{{ site.title }}首页">
+      <span class="brand-mark" aria-hidden="true">边</span>
+      <span>{{ site.title }}<small>学习 · 思考 · 实践</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">菜单 <span aria-hidden="true">☰</span></button>
+    <nav id="site-nav" class="nav" aria-label="主导航">
+      {% for key, label, file in [('home','首页','index.html'),('paper','论文笔记','papers.html'),('algorithm','算法理解','algorithms.html'),('project','项目实践','projects.html'),('journal','学习日志','journal.html'),('about','关于我','about.html')] %}
+      <a href="{{ prefix }}{{ file }}" {% if active == key %}class="active" aria-current="page"{% endif %}>{{ label }}</a>
+      {% endfor %}
+    </nav>
+    <a class="guide-link" href="{{ prefix }}guide.html">写作指南 <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main id="main">{% block content %}{% endblock %}</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><strong>{{ site.title }}</strong><span>让每一次学习，都留下可以回看的痕迹。</span></div>
+    <div class="footer-links"><a href="{{ prefix }}notes.html">全部记录</a><a href="{{ prefix }}guide.html">如何开始</a></div>
+  </div>
+  <p class="footer-note">内容以个人理解为主；示例不代表真实研究成果。本站未配置评论、用户登录或访问统计脚本。</p>
+</footer>
+</body>
+</html>

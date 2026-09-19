@@ -1,0 +1,7 @@
+<article class="note-card searchable" data-kind="{{ n.kind }}" data-search="{{ n.search }}" data-tags="{{ n.tags | join('|') }}">
+  <div class="card-top"><span class="kind-label kind-{{ n.kind }}">{{ n.kind_label }}</span><span class="card-date">{{ n.date }}</span></div>
+  {% if n.example %}<span class="example-label">示例 · 待替换</span>{% endif %}
+  <h3><a href="{{ prefix }}{{ n.url }}">{{ n.title }}</a></h3>
+  <p>{{ n.summary }}</p>
+  <div class="card-bottom"><div class="tags">{% for tag in n.tags[:3] %}<span>{{ tag }}</span>{% endfor %}</div><a class="arrow-link" href="{{ prefix }}{{ n.url }}" aria-label="阅读：{{ n.title }}">↗</a></div>
+</article>

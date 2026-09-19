@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container archive-container">
+  <header class="page-heading"><p class="eyebrow">学习档案 / 持续更新</p><h1>{{ title }}<span class="small-dot">.</span></h1><p>{{ intro }}</p></header>
+  <section class="search-tools" aria-label="筛选学习记录">
+    <label class="search-box"><span aria-hidden="true">⌕</span><input id="note-search" type="search" placeholder="搜索标题、摘要或标签…" aria-label="搜索标题、摘要或标签"><kbd>/</kbd></label>
+    {% if filterable %}
+    <div class="filter-tabs" aria-label="按内容类型筛选">
+      <button class="filter-button selected" data-filter="all" aria-pressed="true">全部</button>
+      {% for key, item in kinds.items() %}<button class="filter-button" data-filter="{{ key }}" aria-pressed="false">{{ item.label }}</button>{% endfor %}
+    </div>
+    {% endif %}
+    <div class="tag-filter"><label for="tag-select">主题标签</label><select id="tag-select"><option value="">全部主题</option>{% for tag in all_tags %}<option>{{ tag }}</option>{% endfor %}</select><span id="result-count" role="status">{{ entries | length }} 篇记录（示例有单独标识）</span></div>
+  </section>
+  <noscript><p class="inline-notice">筛选需要 JavaScript；全部文章仍可直接阅读。</p></noscript>
+  <div class="card-grid archive-grid" id="notes-grid">
+  {% for n in entries %}{% include "card.html" %}{% endfor %}
+  </div>
+  <div id="empty-results" class="empty-state" {% if entries %}hidden{% endif %}><h2>这里还没有符合条件的记录</h2><p>可以清空筛选，或从写作模板开始一篇新的笔记。</p><a href="guide.html">查看写作指南 →</a></div>
+</div>
+{% endblock %}

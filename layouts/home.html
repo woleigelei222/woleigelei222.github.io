@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot"></span> 边缘计算 · 公开学习档案</p>
+      <h1>把读过的论文，<br>变成<span class="ink-highlight">自己的理解。</span></h1>
+      <p class="hero-description">{{ site.description }}<br>不只收藏知识，也记录疑问、验证与修正。</p>
+      <div class="hero-actions"><a class="button primary" href="notes.html">浏览学习记录 <span aria-hidden="true">↗</span></a><a class="button text-button" href="about.html">认识我 <span aria-hidden="true">→</span></a></div>
+      <div class="topic-line"><span>关注方向</span><span>边缘计算</span><span>任务卸载</span><span>资源调度</span></div>
+    </div>
+    <aside class="field-notebook" aria-label="学习记录方法">
+      <div class="notebook-top"><span>我的学习闭环</span><span class="notebook-symbol" aria-hidden="true">✳</span></div>
+      <div class="notebook-step"><span class="step-no">01</span><div><strong>读懂问题</strong><p>作者到底在解决什么？</p></div><span aria-hidden="true">↗</span></div>
+      <div class="notebook-step"><span class="step-no">02</span><div><strong>拆开方法</strong><p>假设、推导与一个小例子。</p></div><span aria-hidden="true">↗</span></div>
+      <div class="notebook-step"><span class="step-no">03</span><div><strong>动手验证</strong><p>用代码、实验和反例检查理解。</p></div><span aria-hidden="true">↗</span></div>
+      <div class="notebook-bottom"><span class="tiny-dot"></span> 留下过程，而不只留下结论。</div>
+    </aside>
+  </section>
+  {% if example_count %}
+  <div class="demo-banner" role="note"><span class="demo-icon">i</span><p><strong>这是你的网站起步模板。</strong> 下方 {{ example_count }} 篇内容均为演示，不是你的真实经历。替换后再作为求职材料分享。</p><a href="guide.html">开始写第一篇 →</a></div>
+  {% endif %}
+  <section class="section-block" aria-labelledby="featured-title">
+    <div class="section-heading"><div><p class="eyebrow">值得展开讲的内容</p><h2 id="featured-title">精选学习笔记<span class="small-dot">.</span></h2></div><a class="section-link" href="notes.html">查看全部记录 <span aria-hidden="true">→</span></a></div>
+    <div class="card-grid">
+    {% for n in selected %}{% include "card.html" %}{% else %}<div class="empty-state"><h3>精选内容从第一篇开始</h3><p>把一篇文章的 featured 设置为 true，就会出现在这里。</p><a href="guide.html">查看写作指南 →</a></div>{% endfor %}
+    </div>
+  </section>
+  <section class="lower-grid section-block">
+    <div>
+      <div class="section-heading compact"><div><p class="eyebrow">持续积累</p><h2>最近的学习记录<span class="small-dot">.</span></h2></div></div>
+      <div class="timeline-list">
+      {% for n in notes[:5] %}
+        <a class="timeline-item" href="{{ n.url }}"><time>{{ n.date[5:] }}</time><div><div class="timeline-kind">{{ n.kind_label }}{% if n.example %}<span>示例</span>{% endif %}</div><h3>{{ n.title }}</h3></div><span class="timeline-arrow" aria-hidden="true">↗</span></a>
+      {% else %}<div class="empty-state"><p>现在开始记录，未来会感谢今天的你。</p></div>{% endfor %}
+      </div>
+    </div>
+    <aside class="profile-panel">
+      <p class="eyebrow">关于这个学习档案</p>
+      <h2>{{ site.author }}</h2><p class="profile-role">{{ site.role }}</p>
+      <p>希望把每一个“似乎懂了”，推进到“能够解释、实现和验证”。</p>
+      <dl class="stats"><div><dt>正式记录</dt><dd>{{ real_count }}<span>篇</span></dd></div><div><dt>实践项目</dt><dd>{{ counts.project }}<span>项</span></dd></div></dl>
+      <p class="stats-caption">只统计非示例内容，不生成虚假的成果数据。</p>
+      <a class="profile-link" href="about.html">了解我的学习方向 <span aria-hidden="true">→</span></a>
+    </aside>
+  </section>
+  <section class="closing-note"><span aria-hidden="true">✳</span><div><h2>不用每天写得完美，先把今天的问题留下来。</h2><p>短记录保留过程；精选文章展示你如何思考。</p></div><a href="guide.html">打开写作模板 →</a></section>
+</div>
+{% endblock %}
