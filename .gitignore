@@ -1,0 +1,8 @@
+public/
+.venv/
+__pycache__/
+*.pyc
+private-notes/
+.env
+.env.*
+.DS_Store
