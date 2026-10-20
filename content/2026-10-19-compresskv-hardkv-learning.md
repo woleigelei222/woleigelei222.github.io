@@ -1,7 +1,7 @@
 ---
 title: "从逐层误差预算到动态 KV 管理：CompressKV 与 HARD-KV 学习记录"
 slug: "2026-10-19-compresskv-hardkv-learning"
-kind: "learning"
+kind: "paper"
 date: "2026-10-19"
 summary: "继续理解 CompressKV 的误差感知逐层 KV Cache 预算分配，并开始阅读 HARD-KV，思考 Head 自适应压缩与 GPU 实际执行效率之间的矛盾。"
 tags: ["边缘计算", "LLM 推理", "KV Cache", "CompressKV", "HARD-KV", "Attention", "学习笔记"]
