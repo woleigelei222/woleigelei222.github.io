@@ -9,6 +9,17 @@
   <link rel="icon" href="{{ prefix }}assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{{ prefix }}assets/style.css">
   <script src="{{ prefix }}assets/site.js" defer></script>
+  
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

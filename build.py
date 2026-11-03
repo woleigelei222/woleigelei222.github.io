@@ -60,7 +60,7 @@ def read_yaml(path: Path) -> dict:
 
 def render_md(text: str) -> tuple[str, list[dict]]:
     renderer = NoteRenderer()
-    md = mistune.create_markdown(renderer=renderer, plugins=["table", "footnotes", "strikethrough"])
+    md = mistune.create_markdown(renderer=renderer, plugins=["table", "footnotes", "strikethrough", "math"])
     return md(text), renderer.headings
 
 
