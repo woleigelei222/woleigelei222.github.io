@@ -1,7 +1,7 @@
 ---
 title: "从 KVzip 分块评分到边缘 LLM 请求调度与 KV 缓存协同"
 slug: "2026-11-11-kvzip-chunked-scoring-edge-llm"
-kind: "learning-log"
+kind: "journal"
 date: "2026-11-11"
 summary: "记录 KVzip 的 Chunked Scoring、Context-dependent 与 Context-independent 两种评分部署方式，并初步建立边缘 LLM 请求调度和 KV 缓存协同优化的系统模型。"
 tags:
